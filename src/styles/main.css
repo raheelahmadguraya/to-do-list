@@ -1,3 +1,65 @@
-h1 {
+/*Application*/
+
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* header */
+
+header {
+  padding: 15px 0 15px 15px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  border-bottom: 2.5px solid #428dff;
+  box-shadow: 0px 0 7px rgba(0, 0, 0, 0.7);
   color: #428dff;
+}
+
+#appLogo {
+  max-width: 75px;
+  max-height: 75px;
+}
+
+/*Projects*/
+
+.project {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+/*Projects Sidebar*/
+
+.projectsSidebar {
+  color: #428dff;
+  padding: 5px 25px 0px 20px;
+  border-right: 1.5px solid #428dff;
+}
+
+/*Project List*/
+
+/*Project Checklist*/
+
+/*footer*/
+
+footer {
+  padding: 15px 0 0px 0px;
+  border-top: 1.5px solid #428dff;
+  /*box-shadow: 0px 0 7px rgba(0, 0, 0, 0.7);*/
+  color: #428dff;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+}
+
+footer h6 {
+  margin: 10px;
+}
+
+#footerLogo {
+  max-width: 25px;
+  max-height: 25px;
 }
