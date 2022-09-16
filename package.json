@@ -2,7 +2,7 @@
   "name": "to-do-list",
   "version": "1.0.0",
   "description": "A standard To-do list",
-  "main": "generateJoke.js",
+  "private": true,
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve"

@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>The To-do List</title>
   <link rel="shortcut icon" href="#" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <header>
     <img id="appLogo">
     <h1>The To-do List</h1>
+    <img id="addProject">
   </header>
   <div class="project">
     <div class="projectsSidebar">
@@ -23,7 +25,27 @@
         <p>Project 5</p>
       </div>
     </div>
-    <div class="projectChecklist"></div>
+    <div class="projectControlCentre">
+      <div class="projectChecklist">
+        <div class="todo">
+          <div class="todo-priority">
+          </div>
+          <div class="todo-number">
+            <h4>#1</h4>
+          </div>
+          <div class="todo-title">
+            <h4>Do this</h4>
+          </div>
+          <div class="todo-dueDate">
+            <p>Due: 01/02/2022</p>
+          </div>
+          <div class="todo-markComplete">
+            <img id="check">
+          </div>
+        </div>
+      </div>
+      <div class="projectDescription"></div>
+    </div>
   </div>
   <footer>
     <img id="footerLogo">
