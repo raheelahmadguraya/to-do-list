@@ -11,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
     clean: true,
+    assetModuleFilename: '[name][ext]'
   },
   devtool: 'source-map',
   devServer: {
@@ -26,13 +27,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test:/\.scss$/,
+        test:/\.css$/,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader'
         ]
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
+      },
     ]
   },
   plugins: [
@@ -41,6 +46,6 @@ module.exports = {
       filename: 'index.html',
       template: 'src/template.html'
     }),
-    new BundleAnalyzerPlugin(),
+    //new BundleAnalyzerPlugin(),
   ]
 }
