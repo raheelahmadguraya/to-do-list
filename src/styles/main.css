@@ -62,9 +62,18 @@ header {
   border-radius: 15px;
 }
 
+.checklist-title {
+  border-bottom: 5px solid #428dff;
+  padding: 10px 0px 0px 0px;
+  color: white;
+  background-color: #428dff;
+  text-align: center;
+}
+
 .todo {
   border-bottom: 3px solid #428dff;
-  padding: 10px 5px 5px 10px;
+  padding: 5px 15px;
+  min-height: 70px;
 
   display: grid;
   grid-template-columns: auto auto 1fr auto auto;
@@ -76,8 +85,8 @@ header {
 .todo-priority {
   background-color: red;
   padding: 2px;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
 }
 
