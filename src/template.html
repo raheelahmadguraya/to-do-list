@@ -12,8 +12,8 @@
   <header>
     <img id="appLogo">
     <h1>The To-do List</h1>
-    <button class="addProject-button" title="Add a new Project"><img id="addProject"></button>
-    <button class="editProject-button" title="Edit current Project"><img id="editProject"></button>
+    <button id="addProject-button" title="Add a new Project"><img id="addProject"></button>
+    <button id="editProject-button" title="Edit current Project"><img id="editProject"></button>
   </header>
   <div class="project">
     <div class="projectsSidebar">
@@ -77,6 +77,56 @@
   <div id="addTodo-modal" class="modal">
     <div class="modal-content">
       <span class="closeBtn">&times;</span>
+      <h1>Add a To-do.</h1>
+      <h3>Please fill out task details below.</h3>
+      <form>
+        <div class="input-group">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text"/>
+        </div>
+        <div class="input-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="8" cols="30"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="dueDate">Due Date:</label>
+          <input id="dueDate" name="dueDate" type="date"/>
+        </div>
+        <div class="radio-input-group">
+          <h3>Priority</h3>
+          <input id="priority-high" name="priority" type="radio" value="high"/>
+          <label class="inline" for="priority-high">High</label>
+
+          <input id="priority-medium" name="priority" type="radio" value="medium"/>
+          <label class="inline" for="priority-medium">Medium</label>
+
+          <input id="priority-low" name="priority" type="radio" value="low"/>
+          <label class="inline" for="priority-low">Low</label>
+        </div>
+        <button type="submit" class="submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+  <div id="addProject-modal" class="modal">
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+      <h1>Add a new Project</h1>
+      <h3>Please fill out Project details below.</h3>
+      <form>
+        <div class="input-group">
+          <label for="project-title">Title</label>
+          <input id="project-title" name="project-title" type="text"/>
+        </div>
+        <div class="input-group">
+          <label for="project-description">Description</label>
+          <textarea id="project-description" name="project-description" rows="8" cols="30"></textarea>
+        </div>
+        <div class="input-group">
+          <label for="project-dueDate">Due Date:</label>
+          <input id="project-dueDate" name="project-dueDate" type="date"/>
+        </div>
+        <button type="submit" class="submit">Add Task</button>
+      </form>
     </div>
   </div>
 </body>

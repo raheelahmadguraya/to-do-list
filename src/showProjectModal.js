@@ -1,11 +1,11 @@
 //get modal element
-let modal = document.getElementById('addTodo-modal');
+let modal = document.getElementById('addProject-modal');
 //get open modal button
-let modalBtn = document.getElementById('addTodo-button');
+let modalBtn = document.getElementById('addProject-button');
 //get close button
-let closeBtn = document.getElementsByClassName('closeBtn')[0];
+let closeBtn = document.getElementsByClassName('closeBtn')[1];
 
-const setTodoListener = () => {
+const setProjectListener = () => {
 modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', clickOutside);
@@ -25,4 +25,4 @@ const clickOutside = (event) => {
   }
 };
 
-export {setTodoListener};
+export {setProjectListener};

@@ -120,8 +120,8 @@ header {
 }
 
 .todo-button,
-.addProject-button,
-.editProject-button,
+#addProject-button,
+#editProject-button,
 #addTodo-button,
 .selectProject-button {
   background: none;
@@ -248,6 +248,11 @@ footer h6 {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.7), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
   animation-name: modalopen;
   animation-duration: 1s;
+
+  color: #428dff;
+  display: grid;
+  grid-template-rows: 1fr auto auto auto;
+  padding: 30px 100px 100px 100px;
 }
 
 @keyframes modalopen {
@@ -258,11 +263,66 @@ footer h6 {
 .closeBtn {
   color: #ccc;
   float: right;
-  font-size: 30px;
+  font-size: 50px;
+  justify-self: flex-end;
 }
 
 .closeBtn:hover,.closeBtn:focus {
   color: #428dff;
   text-decoration: none;
   cursor: pointer;
+}
+
+#addTodo-modal>.modal-content>form {
+  color: #428dff;
+  display: grid;
+  gap: 15px;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.submit {
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+
+  color: white;
+  background-color: #428dff;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+input,
+textarea {
+  border: 2px solid #428dff;
+  border-radius: 5px;
+}
+
+#addProject-modal {
+  display: none;
+}
+
+#addProject-modal>.modal-content {
+  background-color: white;
+  margin: 30% auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.7), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
+  animation-name: modalopen;
+  animation-duration: 1s;
+
+  color: #428dff;
+  display: grid;
+  grid-template-rows: 1fr auto auto auto;
+  padding: 30px 100px 100px 100px;
+}
+
+#addProject-modal>.modal-content>form {
+  color: #428dff;
+  display: grid;
+  gap: 15px;
 }
