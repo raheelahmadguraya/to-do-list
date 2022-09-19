@@ -12,17 +12,14 @@
   <header>
     <img id="appLogo">
     <h1>The To-do List</h1>
-    <img id="addProject">
+    <button class="addProject-button" title="Add a new Project"><img id="addProject"></button>
+    <button class="editProject-button" title="Edit current Project"><img id="editProject"></button>
   </header>
   <div class="project">
     <div class="projectsSidebar">
       <h2>Projects</h2>
       <div class="projectList">
-        <p>Project 1</p>
-        <p>Project 2</p>
-        <p>Project 3</p>
-        <p>Project 4</p>
-        <p>Project 5</p>
+        <button class="selectProject-button"><p>Project 1</p></button>
       </div>
     </div>
     <div class="projectControlCentre">
@@ -36,26 +33,28 @@
         <div class="checklist-title">
           <h2>Checklist</h2>
         </div>
-        <div class="todo">
-          <div class="todo-priority med-priority">
-          </div>
-          <div class="todo-number">
-            <h4>#1</h4>
-          </div>
-          <div class="todo-title">
-            <h4>Do this</h4>
-          </div>
-          <div class="todo-dueDate">
-            <p>Due: 01/02/2022</p>
-          </div>
-          <div class="todo-functions">
-            <img id="check">
-            <img id="editItem">
-            <img id="deleteItem">
+        <div class="todo-list">
+          <div class="todo">
+            <div class="todo-priority med-priority">
+            </div>
+            <div class="todo-number" id="todo-1">
+              <h4>1.</h4>
+            </div>
+            <div class="todo-title">
+              <h4>Do this</h4>
+            </div>
+            <div class="todo-dueDate">
+              <p>Due: 01/02/2022</p>
+            </div>
+            <div class="todo-functions">
+              <button class="todo-button" title="Mark task complete"><img id="check"></button>
+              <button class="todo-button" title="Edit task"><img id="editItem"></button>
+              <button class="todo-button" title="Delete task"><img id="deleteItem"></button>
+            </div>
           </div>
         </div>
         <div class="todo addTodo">
-            <img id="addItem">
+          <button class="addTodo-button" title="Add a new task"><img id="addItem"></button>
         </div>
       </div>
       <div class="projectDescription">

@@ -7,6 +7,7 @@ import check from './assets/success.png'
 import pencil from './assets/pencil.png'
 import deleteItem from './assets/bin.png'
 import addTask from './assets/plus.png'
+import editProject from './assets/edit-notepad.png'
 
 const appLogo = document.getElementById('appLogo');
 appLogo.src = notepad;
@@ -28,3 +29,6 @@ addCheckListItem.src = addTask;
 
 const footerLogo = document.getElementById('footerLogo');
 footerLogo.src = daisy;
+
+const editProj = document.getElementById('editProject');
+editProj.src = editProject;
