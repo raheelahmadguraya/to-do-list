@@ -1,5 +1,6 @@
 import './styles/main.css'
 import 'normalize.css';
+import { setListener } from './showTodoModal';
 import notepad from './assets/notepad.png'
 import daisy from './assets/daisy.png'
 import project from './assets/note-book.png'
@@ -32,3 +33,5 @@ footerLogo.src = daisy;
 
 const editProj = document.getElementById('editProject');
 editProj.src = editProject;
+
+setListener();
