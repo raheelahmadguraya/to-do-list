@@ -50,11 +50,16 @@ header {
 .projectControlCentre {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 50px 1fr;
 }
+
+
 
 /*Project Checklist*/
 
 .projectChecklist {
+  display: grid;
+  grid-template-rows: 75px auto auto;
   margin: 50px;
   min-width: 200px;
   min-height: 200px;
@@ -64,7 +69,6 @@ header {
 
 .checklist-title {
   border-bottom: 5px solid #428dff;
-  padding: 10px 0px 0px 0px;
   color: white;
   background-color: #428dff;
   text-align: center;
@@ -82,6 +86,13 @@ header {
   gap: 15px;
 }
 
+.addTodo {
+  place-items: center center;
+  place-content: center center;
+  display: grid;
+  grid-template-columns: auto;
+}
+
 .todo-priority {
   background-color: red;
   padding: 2px;
@@ -90,9 +101,16 @@ header {
   border-radius: 50%;
 }
 
-#check {
-  max-width: 40px;
-  max-height: 40px;
+#check,
+#editItem,
+#deleteItem {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+#addItem {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 /*Project Description*/
@@ -103,6 +121,24 @@ header {
   min-height: 200px;
   border: 5px solid #428dff;
   border-radius: 15px;
+
+  display: grid;
+  grid-template-rows: 75px auto;
+}
+
+.projectDescription-title {
+  border-bottom: 5px solid #428dff;
+  color: white;
+  background-color: #428dff;
+  text-align: center;
+
+  max-height: 75px;
+}
+
+.project-details {
+  padding: 10px;
+  text-align: center;
+  color: black;
 }
 
 /*footer*/
