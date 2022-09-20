@@ -79,28 +79,28 @@
       <span class="closeBtn">&times;</span>
       <h1>Add a To-do.</h1>
       <h3>Please fill out task details below.</h3>
-      <form>
+      <form id="addTodo-form">
         <div class="input-group">
           <label for="title">Title</label>
-          <input id="title" name="title" type="text"/>
+          <input id="title" name="title" type="text" required/>
         </div>
         <div class="input-group">
           <label for="description">Description</label>
-          <textarea id="description" name="description" rows="8" cols="30"></textarea>
+          <textarea id="description" name="description" rows="8" cols="30" required></textarea>
         </div>
         <div class="input-group">
           <label for="dueDate">Due Date:</label>
-          <input id="dueDate" name="dueDate" type="date"/>
+          <input id="dueDate" name="dueDate" type="date" required/>
         </div>
         <div class="radio-input-group">
           <h3>Priority</h3>
-          <input id="priority-high" name="priority" type="radio" value="high"/>
+          <input id="priority-high" name="priority" type="radio" value="high" required/>
           <label class="inline" for="priority-high">High</label>
 
-          <input id="priority-medium" name="priority" type="radio" value="medium"/>
+          <input id="priority-medium" name="priority" type="radio" value="medium" required/>
           <label class="inline" for="priority-medium">Medium</label>
 
-          <input id="priority-low" name="priority" type="radio" value="low"/>
+          <input id="priority-low" name="priority" type="radio" value="low" required/>
           <label class="inline" for="priority-low">Low</label>
         </div>
         <button type="submit" class="submit">Add Task</button>
@@ -112,18 +112,18 @@
       <span class="closeBtn">&times;</span>
       <h1>Add a new Project</h1>
       <h3>Please fill out Project details below.</h3>
-      <form>
+      <form id="addProj-form">
         <div class="input-group">
           <label for="project-title">Title</label>
-          <input id="project-title" name="project-title" type="text"/>
+          <input id="project-title" name="project-title" type="text" required/>
         </div>
         <div class="input-group">
           <label for="project-description">Description</label>
-          <textarea id="project-description" name="project-description" rows="8" cols="30"></textarea>
+          <textarea id="project-description" name="project-description" rows="8" cols="30" required></textarea>
         </div>
         <div class="input-group">
           <label for="project-dueDate">Due Date:</label>
-          <input id="project-dueDate" name="project-dueDate" type="date"/>
+          <input id="project-dueDate" name="project-dueDate" type="date" required/>
         </div>
         <button type="submit" class="submit">Add Task</button>
       </form>
