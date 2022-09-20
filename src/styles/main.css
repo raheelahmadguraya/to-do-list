@@ -230,21 +230,22 @@ footer h6 {
 }
 
 .modal {
-  position: absolute;
   z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.4);
+  padding: 100px 150px;
 }
 
 #addTodo-modal>.modal-content {
   background-color: white;
-  margin: 30% auto;
-  padding: 20px;
-  width: 70%;
+  width: 100%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.7), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
   animation-name: modalopen;
   animation-duration: 1s;
@@ -252,7 +253,9 @@ footer h6 {
   color: #428dff;
   display: grid;
   grid-template-rows: 1fr auto auto auto;
-  padding: 30px 100px 100px 100px;
+  padding: 30px 75px 75px 75px;
+  margin: 30% auto;
+  width: 1000px;
 }
 
 @keyframes modalopen {
@@ -308,8 +311,6 @@ textarea {
 
 #addProject-modal>.modal-content {
   background-color: white;
-  margin: 30% auto;
-  padding: 20px;
   width: 70%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.7), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
   animation-name: modalopen;
@@ -318,7 +319,9 @@ textarea {
   color: #428dff;
   display: grid;
   grid-template-rows: 1fr auto auto auto;
-  padding: 30px 100px 100px 100px;
+  padding: 30px 75px 75px 75px;
+  margin: 30% auto;
+  width: 1000px;
 }
 
 #addProject-modal>.modal-content>form {
