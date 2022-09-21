@@ -6,6 +6,7 @@ import pencil from './assets/pencil.png'
 import deleteItem from './assets/bin.png'
 import addTask from './assets/plus.png'
 import editProject from './assets/edit-notepad.png'
+import deleteProject from './assets/project-delete.png'
 
 const loadImages = () => {
 const appLogo = document.getElementById('appLogo');
@@ -31,6 +32,9 @@ footerLogo.src = daisy;
 
 const editProj = document.getElementById('editProject');
 editProj.src = editProject;
+
+const deleteProj = document.getElementById('deleteProject');
+deleteProj.src = deleteProject;
 
 };
 

@@ -14,6 +14,7 @@
     <h1>The To-do List</h1>
     <button id="addProject-button" title="Add a new Project"><img id="addProject"></button>
     <button id="editProject-button" title="Edit current Project"><img id="editProject"></button>
+    <button id="deleteProject-button" title="Delete current Project"><img id="deleteProject"></button>
   </header>
   <div class="project">
     <div class="projectsSidebar">
@@ -112,18 +113,18 @@
       <span class="closeBtn">&times;</span>
       <h1>Add a new Project</h1>
       <h3>Please fill out Project details below.</h3>
-      <form id="addProj-form">
+      <form id="addProject-form">
         <div class="input-group">
-          <label for="project-title">Title</label>
-          <input id="project-title" name="project-title" type="text" required/>
+          <label for="projectTitle">Title</label>
+          <input id="projectTitle" name="projectTitle" type="text" required/>
         </div>
         <div class="input-group">
-          <label for="project-description">Description</label>
-          <textarea id="project-description" name="project-description" rows="8" cols="30" required></textarea>
+          <label for="projectDescription">Description</label>
+          <textarea id="projectDescription" name="projectDescription" rows="8" cols="30" required></textarea>
         </div>
         <div class="input-group">
-          <label for="project-dueDate">Due Date:</label>
-          <input id="project-dueDate" name="project-dueDate" type="date" required/>
+          <label for="projectDueDate">Due Date:</label>
+          <input id="projectDueDate" name="projectDueDate" type="date" required/>
         </div>
         <button type="submit" class="submit">Add Project</button>
       </form>

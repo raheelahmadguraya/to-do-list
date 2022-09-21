@@ -13,6 +13,9 @@ function handleFormSubmit(event) {
   localStorage.setItem('result', result);
 
   closeModal();
+  let todoItem = JSON.parse(localStorage.getItem('result'));
+  console.log(todoItem)
+  console.log(todoItem.priority)
 }
 
 const setSubmitListener = () => {
