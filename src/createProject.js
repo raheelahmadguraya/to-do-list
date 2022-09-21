@@ -6,11 +6,12 @@ const createProject = (project) => {
 
   let key = projectKey();
   let storageKeyName = 'project' + key;
-  console.log(storageKeyName);
+
+  project.storageKeyName = storageKeyName;
 
   const result = JSON.stringify(project, null, 2);
   localStorage.setItem(storageKeyName, result);
-  addToDom(result);
+  addToDom(project);
 };
 
 export { createProject };

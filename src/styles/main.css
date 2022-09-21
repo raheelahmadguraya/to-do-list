@@ -47,9 +47,10 @@ header {
   border-right: 1.5px solid #428dff;
 }
 
-.projectsList {
+.projectList {
   display: grid;
   grid-template-rows: auto;
+  gap: 15px;
 }
 
 .selectProject-button {
@@ -64,13 +65,6 @@ header {
   transition: 0.3s;
 }
 
-.selectProject-button:enabled {
-  background-color: #428dff;
-  color: white;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  transition: 0.3s;
-}
 
 /*Project Control Centre*/
 
