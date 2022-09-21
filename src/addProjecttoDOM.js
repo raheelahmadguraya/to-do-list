@@ -5,11 +5,12 @@ const addToDom = (project) => {
   let projectSidebar = document.getElementsByClassName('projectList')[0];
   const projectSideBarLink = document.createElement("button");
   projectSideBarLink.classList.add("selectProject-button");
-  projectSideBarLink.classList.add(project.projectTitle);
+  let projectTitle = project.projectTitle.replace(/\s/g, '-');
+  projectSideBarLink.classList.add(projectTitle);
 
-  const projectDisplayName = document.createElement("p");
-  projectDisplayName.innerHTML = project.projectTitle;
-  projectSideBarLink.appendChild(projectDisplayName);
+  const projectSBDisplayName = document.createElement("p");
+  projectSBDisplayName.innerHTML = project.projectTitle;
+  projectSideBarLink.appendChild(projectSBDisplayName);
   projectSidebar.appendChild(projectSideBarLink);
 
   selectProject(project);
