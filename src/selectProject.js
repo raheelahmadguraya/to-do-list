@@ -9,10 +9,7 @@ const selectProject = (project) => {
   let projectFromLS = loadProject(projectKey);
 
   let projectMainTitle = document.getElementsByClassName('project-title')[0];
-  projectMainTitle.removeChild(projectMainTitle.lastElementChild);
-  let projectTitleDisplay = document.createElement('h2');
-  projectTitleDisplay.innerHTML = projectFromLS.projectTitle;
-  projectMainTitle.appendChild(projectTitleDisplay);
+  projectMainTitle.innerHTML = '<h2>' + projectFromLS.projectTitle + '</h2>';
 
 
   let projectDueDate = document.getElementsByClassName('project-dueDate')[0];

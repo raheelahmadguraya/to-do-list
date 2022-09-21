@@ -7,8 +7,8 @@ function handleFormSubmit(event) {
   
   const formJSON = Object.fromEntries(data.entries());
 
-  createProject(formJSON);
   closeModal();
+  createProject(formJSON);
 }
 
 const setProjectSubmitListener = () => {
