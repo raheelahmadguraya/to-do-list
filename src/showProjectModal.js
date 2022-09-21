@@ -25,4 +25,4 @@ const clickOutside = (event) => {
   }
 };
 
-export { setProjectListener };
+export { setProjectListener, openModal };

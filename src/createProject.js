@@ -11,7 +11,7 @@ const createProject = (project) => {
 
   const result = JSON.stringify(project, null, 2);
   localStorage.setItem(storageKeyName, result);
-  addToDom(project);
+  addToDom(project, storageKeyName);
 };
 
 export { createProject };

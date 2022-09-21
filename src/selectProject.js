@@ -32,12 +32,16 @@ const selectProject = (project) => {
   let projectSBTitle = projectFromLS.projectTitle.replace(/\s/g, '-');
   let projectSBLink = document.getElementsByClassName(projectSBTitle)[0];
   projectSBLink.classList.add("currentProject");
-
 };
 
 const setSelectProjectListener = () => {
-
+  document.querySelectorAll('.selectProject-button').forEach(element => {
+    element.addEventListener('click', event =>{
+      let projectKey = event.target.closest('button').id;
+      let projectFromLS = loadProject(projectKey);
+      selectProject(projectFromLS);
+    })
+  })
 };
 
-
-export { selectProject };
+export { selectProject, setSelectProjectListener };

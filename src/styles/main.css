@@ -65,6 +65,7 @@ header {
   display: grid;
   grid-template-rows: auto;
   gap: 15px;
+  overflow-y: scroll;
 }
 
 .selectProject-button {
