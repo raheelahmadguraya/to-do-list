@@ -26,8 +26,8 @@ const selectProject = (key) => {
     currentProject.classList.remove('currentProject');
   }
 
-  let projectSBTitle = currentProject.projectTitle.replace(/\s/g, '-');
-  let projectSBLink = document.getElementsByClassName(projectSBTitle)[0];
+  let projectSBID = key;
+  let projectSBLink = document.getElementById(projectSBID);
   projectSBLink.classList.add("currentProject");
 };
 

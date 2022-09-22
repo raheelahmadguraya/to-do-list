@@ -1,12 +1,12 @@
-import notepad from './assets/notepad.png'
-import daisy from './assets/daisy.png'
-import project from './assets/note-book.png'
-import check from './assets/success.png'
-import pencil from './assets/pencil.png'
-import deleteItem from './assets/bin.png'
-import addTask from './assets/plus.png'
-import editProject from './assets/edit-notepad.png'
-import deleteProject from './assets/project-delete.png'
+import notepad from '../assets/notepad.png'
+import daisy from '../assets/daisy.png'
+import project from '../assets/note-book.png'
+import check from '../assets/success.png'
+import pencil from '../assets/pencil.png'
+import deleteItem from '../assets/bin.png'
+import addTask from '../assets/plus.png'
+import editProject from '../assets/edit-notepad.png'
+import deleteProject from '../assets/project-delete.png'
 
 const loadImages = () => {
 const appLogo = document.getElementById('appLogo');

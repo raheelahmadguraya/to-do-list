@@ -1,4 +1,3 @@
-import './styles/main.css'
 import { selectProject, setSelectProjectListener } from './selectProject'
 
 const addToDom = (key) => {

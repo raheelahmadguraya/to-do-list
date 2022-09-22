@@ -8,12 +8,18 @@ const deleteProjectListener = () => {
   deleteProjBtn.addEventListener('click', event =>{
     if (document.querySelector('.currentProject') != null) {
       let currentProject = document.getElementsByClassName('currentProject')[0];
-      localStorage.removeItem(currentProject.id);
+
+      let projectList = JSON.parse(localStorage.getItem('projectList'));
+      projectList.splice(currentProject.id, currentProject.id)
+      console.log(projectList);
+      const projectArrayJSON = JSON.stringify(projectList, null, 2);
+      localStorage.setItem("projectList", projectArrayJSON);
+
       currentProject.remove();
-      if (localStorage.key(0) != null) {
-        let key = localStorage.key(0);
-        let newCurrentProject = JSON.parse(localStorage.getItem(key));
-        selectProject(newCurrentProject);
+
+      if ((JSON.parse(localStorage.getItem('projectList'))).length != 0) {
+        let key = 0
+        selectProject(key);
       } else {
         openModal();
       }
