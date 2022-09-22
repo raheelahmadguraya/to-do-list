@@ -1,15 +1,17 @@
 import './styles/main.css'
 import 'normalize.css';
 import { setTodoListener } from './showTodoModal';
-import { setProjectListener } from './showProjectModal';
+import { setAddProjectListener } from './showProjectModal';
 import { setSubmitListener } from './storeTodoDetails';
-import { setProjectSubmitListener } from './storeProjectDetails';
+import { setProjectSubmitListener } from './collectProjectData';
 import { deleteProjectListener } from './deleteProject'
+import { editProjectListener } from './editProject'
 import { loadImages } from './loadImages';
 
 loadImages();
 setTodoListener();
-setProjectListener();
+setAddProjectListener();
 setSubmitListener();
 setProjectSubmitListener();
 deleteProjectListener();
+editProjectListener();

@@ -1,4 +1,4 @@
-import { addToDom } from './addProjecttoDOM.js'
+import { storeProject } from './storeProjectLS.js';
 
 const projectKey = (i => () => i++)(0);
 
@@ -8,10 +8,8 @@ const createProject = (project) => {
   let storageKeyName = 'project' + key;
 
   project.storageKeyName = storageKeyName;
-
-  const result = JSON.stringify(project, null, 2);
-  localStorage.setItem(storageKeyName, result);
-  addToDom(project, storageKeyName);
+  project.key = key;
+  storeProject(project, key);
 };
 
 export { createProject };

@@ -1,11 +1,11 @@
 //get modal element
-let modal = document.getElementById('addProject-modal');
+let modal = document.getElementById('editProject-modal');
 //get open modal button
-let modalBtn = document.getElementById('addProject-button');
+let modalBtn = document.getElementById('editProject-button');
 //get close button
 let closeBtn = document.getElementsByClassName('closeBtn')[1];
 
-const setAddProjectListener = () => {
+const setProjectListener = () => {
   modalBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   window.addEventListener('click', clickOutside);
@@ -43,4 +43,4 @@ const clickOutside = (event) => {
   }
 };
 
-export { setAddProjectListener, openModal };
+export { setProjectListener, openModal };

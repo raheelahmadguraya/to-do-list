@@ -4,21 +4,21 @@ const loadProject = (projectKey) => {
 };
 
 
-const selectProject = (project) => {
-  let projectKey = project.storageKeyName;
-  let projectFromLS = loadProject(projectKey);
+const selectProject = (key) => {
+  let projectList = JSON.parse(localStorage.getItem("projectList"));
+  let currentProject = projectList[key];
 
   let projectMainTitle = document.getElementsByClassName('project-title')[0];
-  projectMainTitle.innerHTML = '<h2>' + projectFromLS.projectTitle + '</h2>';
+  projectMainTitle.innerHTML = '<h2>' + currentProject.projectTitle + '</h2>';
 
 
   let projectDueDate = document.getElementsByClassName('project-dueDate')[0];
-  projectDueDate.innerHTML = '<h5>' + 'Project Due Date:' + ' ' + projectFromLS.projectDueDate + '</h5>';
+  projectDueDate.innerHTML = '<h5>' + 'Project Due Date:' + ' ' + currentProject.projectDueDate + '</h5>';
 
   let projectDescriptionSection = document.getElementsByClassName('project-details')[0];
   projectDescriptionSection.innerHTML = '';
   let projectDescription = document.createElement('p')
-  projectDescription.innerHTML = projectFromLS.projectDescription;
+  projectDescription.innerHTML = currentProject.projectDescription;
   projectDescriptionSection.appendChild(projectDescription);
 
   if (document.querySelector('.currentProject') != null) {
@@ -26,7 +26,7 @@ const selectProject = (project) => {
     currentProject.classList.remove('currentProject');
   }
 
-  let projectSBTitle = projectFromLS.projectTitle.replace(/\s/g, '-');
+  let projectSBTitle = currentProject.projectTitle.replace(/\s/g, '-');
   let projectSBLink = document.getElementsByClassName(projectSBTitle)[0];
   projectSBLink.classList.add("currentProject");
 };
@@ -34,9 +34,8 @@ const selectProject = (project) => {
 const setSelectProjectListener = () => {
   document.querySelectorAll('.selectProject-button').forEach(element => {
     element.addEventListener('click', event =>{
-      let projectKey = event.target.closest('button').id;
-      let projectFromLS = loadProject(projectKey);
-      selectProject(projectFromLS);
+      let key = event.target.closest('button').id;
+      selectProject(key);
     })
   })
 };
