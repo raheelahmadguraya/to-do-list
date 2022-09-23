@@ -1,3 +1,4 @@
+import { setMarkTaskCompleteListener } from "./markTaskComplete";
 
 const selectProject = (index) => {
   let projectList = JSON.parse(localStorage.getItem("projectList"));
@@ -33,8 +34,7 @@ const selectProject = (index) => {
   if (Object.hasOwn(currentProject, 'checkList') == true) {
     let toDoListSection = document.getElementsByClassName("todo-list")[0];
     toDoListSection.innerHTML = '';
-    for (const toDo of (currentProject.checkList)){
-      console.log(toDo.priority);
+    for (const [index, toDo] of (currentProject.checkList).entries()){
       let toDoTask = document.createElement('div');
         toDoTask.classList.add("todo");
         let toDoPriority = document.createElement('div');
@@ -54,7 +54,8 @@ const selectProject = (index) => {
         toDoTask.appendChild(toDoDueDate);
         toDoTask.appendChild(toDoFunctionsClone);
         toDoListSection.appendChild(toDoTask);
-          
+
+        setMarkTaskCompleteListener(index);
     }
   }
 };

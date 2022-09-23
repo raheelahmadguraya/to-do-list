@@ -12,7 +12,10 @@ window.addEventListener('click', clickOutside);
 };
 
 const openModal = () => {
-  modal.style.display = 'grid';
+  let projectList = JSON.parse(localStorage.getItem('projectList'))
+  if (projectList.length != 0) {
+    modal.style.display = 'grid';
+  }
 };
 
 const closeModal = () => {
