@@ -1,4 +1,4 @@
-import { createProject } from './createProject'
+import { storeProject } from './storeProjectLS'
 
 function handleFormSubmit(event) {
   event.preventDefault();
@@ -8,7 +8,7 @@ function handleFormSubmit(event) {
   const formJSON = Object.fromEntries(data.entries());
 
   closeModal();
-  createProject(formJSON);
+  storeProject(formJSON);
 }
 
 const setProjectSubmitListener = () => {

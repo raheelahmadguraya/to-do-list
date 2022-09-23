@@ -1,14 +1,18 @@
 import { addToDom } from './addProjecttoDOM.js'
 
-let projectArray = [];
 
-const storeProject = (project, key) => {
+const projectKey = (i => () => i++)(0);
 
+const storeProject = (project) => {
+
+  project.key = projectKey().toString();
+
+  let projectArray = JSON.parse(localStorage.getItem('projectList'));
   projectArray.push(project);
 
   const projectArrayJSON = JSON.stringify(projectArray, null, 2);
   localStorage.setItem("projectList", projectArrayJSON);
-  addToDom(key);
+  addToDom(project.key);
 };
 
 export { storeProject };

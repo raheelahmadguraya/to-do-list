@@ -10,15 +10,15 @@ const deleteProjectListener = () => {
       let currentProject = document.getElementsByClassName('currentProject')[0];
 
       let projectList = JSON.parse(localStorage.getItem('projectList'));
-      projectList.splice(currentProject.id, currentProject.id)
-      console.log(projectList);
+      let index = projectList.findIndex(x => x.key === (currentProject.id).toString())
+      projectList.splice(index, 1);
       const projectArrayJSON = JSON.stringify(projectList, null, 2);
-      localStorage.setItem("projectList", projectArrayJSON);
+      localStorage.setItem('projectList', projectArrayJSON);
 
       currentProject.remove();
 
       if ((JSON.parse(localStorage.getItem('projectList'))).length != 0) {
-        let key = 0
+        let key = 0;
         selectProject(key);
       } else {
         openModal();

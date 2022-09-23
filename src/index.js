@@ -7,11 +7,16 @@ import { setProjectSubmitListener } from './modules/collectProjectData';
 import { deleteProjectListener } from './modules/deleteProject'
 import { editProjectListener } from './modules/editProject'
 import { loadImages } from './modules/loadImages';
+import { load } from './modules/load';
 
 loadImages();
+
 setTodoListener();
-setAddProjectListener();
 setSubmitListener();
+
+//Manipulate projects
+setAddProjectListener();
 setProjectSubmitListener();
 deleteProjectListener();
 editProjectListener();
+load();

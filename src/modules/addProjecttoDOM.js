@@ -2,7 +2,8 @@ import { selectProject, setSelectProjectListener } from './selectProject'
 
 const addToDom = (key) => {
   let projectList = JSON.parse(localStorage.getItem("projectList"));
-  let currentProject = projectList[key];
+  let index = projectList.findIndex(x => x.key === key)
+  let currentProject = projectList[index];
 
   let projectSidebar = document.getElementsByClassName('projectList')[0];
   const projectSideBarLink = document.createElement("button");
@@ -16,7 +17,7 @@ const addToDom = (key) => {
   projectSideBarLink.appendChild(projectSBDisplayName);
   projectSidebar.appendChild(projectSideBarLink);
 
-  selectProject(key);
+  selectProject(index);
   setSelectProjectListener();
 };
 

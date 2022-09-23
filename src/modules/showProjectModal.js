@@ -17,29 +17,11 @@ const openModal = () => {
 
 const closeModal = () => {
   modal.style.display = 'none';
-
-  let formDisplayProjectTitle = document.getElementById('projectTitle');
-  formDisplayProjectTitle.removeAttribute("value");
-
-  let formDisplayProjectDescription = document.getElementById('projectDescription');
-  formDisplayProjectDescription.innerHTML = '';
-
-  let formDisplayProjectDueDate = document.getElementById('projectDueDate');
-  formDisplayProjectDueDate.removeAttribute("value");
 };
 
 const clickOutside = (event) => {
   if(event.target == modal){
     modal.style.display = 'none';
-
-    let formDisplayProjectTitle = document.getElementById('projectTitle');
-    formDisplayProjectTitle.removeAttribute("value");
-  
-    let formDisplayProjectDescription = document.getElementById('projectDescription');
-    formDisplayProjectDescription.innerHTML = '';
-  
-    let formDisplayProjectDueDate = document.getElementById('projectDueDate');
-    formDisplayProjectDueDate.removeAttribute("value");
   }
 };
 

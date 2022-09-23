@@ -1,12 +1,8 @@
-const loadProject = (projectKey) => {
-  let projectFromLS = JSON.parse(localStorage.getItem(projectKey));
-  return projectFromLS;
-};
 
-
-const selectProject = (key) => {
+const selectProject = (index) => {
   let projectList = JSON.parse(localStorage.getItem("projectList"));
-  let currentProject = projectList[key];
+  console.log(index);
+  let currentProject = projectList[index];
 
   let projectMainTitle = document.getElementsByClassName('project-title')[0];
   projectMainTitle.innerHTML = '<h2>' + currentProject.projectTitle + '</h2>';
@@ -26,16 +22,18 @@ const selectProject = (key) => {
     currentProject.classList.remove('currentProject');
   }
 
-  let projectSBID = key;
-  let projectSBLink = document.getElementById(projectSBID);
+  let projectSBLink = document.getElementById((currentProject.key).toString());
   projectSBLink.classList.add("currentProject");
 };
 
 const setSelectProjectListener = () => {
-  document.querySelectorAll('.selectProject-button').forEach(element => {
+  document.querySelectorAll('.currentProject').forEach(element => {
     element.addEventListener('click', event =>{
+      console.log('click');
       let key = event.target.closest('button').id;
-      selectProject(key);
+      let projectList = JSON.parse(localStorage.getItem("projectList"));
+      let index = projectList.findIndex(x => x.key === key.toString())
+      selectProject(index);
     })
   })
 };
