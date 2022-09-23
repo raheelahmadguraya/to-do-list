@@ -14,7 +14,7 @@ const storeToDo = (toDo) => {
   
   let updatedProject = projectList[index];
   toDo.projectIndex = index;
-  toDo.key = toDoKey();
+  toDo.key = toDoKey().toString();
   if (Object.hasOwn(updatedProject, 'checkList') == false) {
     let projectCheckList = createCheckList();
     projectCheckList.push(toDo);

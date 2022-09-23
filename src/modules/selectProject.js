@@ -1,4 +1,5 @@
 import { setMarkTaskCompleteListener } from "./markTaskComplete";
+import { deleteTaskListener } from "./deleteTask";
 
 const selectProject = (index) => {
   let projectList = JSON.parse(localStorage.getItem("projectList"));
@@ -37,6 +38,7 @@ const selectProject = (index) => {
     for (const [index, toDo] of (currentProject.checkList).entries()){
       let toDoTask = document.createElement('div');
         toDoTask.classList.add("todo");
+        toDoTask.setAttribute("id", "task" + toDo.key);
         let toDoPriority = document.createElement('div');
           toDoPriority.classList.add("todo-priority");
           toDoPriority.classList.add(toDo.priority);
@@ -56,6 +58,7 @@ const selectProject = (index) => {
         toDoListSection.appendChild(toDoTask);
 
         setMarkTaskCompleteListener(index);
+        deleteTaskListener(index);
     }
   }
 };
