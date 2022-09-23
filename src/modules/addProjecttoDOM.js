@@ -4,6 +4,7 @@ const addToDom = (key) => {
   let projectList = JSON.parse(localStorage.getItem("projectList"));
   let index = projectList.findIndex(x => x.key === key)
   let currentProject = projectList[index];
+  console.log(currentProject);
 
   let projectSidebar = document.getElementsByClassName('projectList')[0];
   const projectSideBarLink = document.createElement("button");

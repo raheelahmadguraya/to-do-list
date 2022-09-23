@@ -5,7 +5,8 @@ import { setAddProjectListener } from './modules/showProjectModal';
 import { setSubmitListener } from './modules/storeTodoDetails';
 import { setProjectSubmitListener } from './modules/collectProjectData';
 import { deleteProjectListener } from './modules/deleteProject'
-import { editProjectListener } from './modules/editProject'
+import { setEditProjectListener } from './modules/editProjectModal'
+import { setEditProjectSubmitListener } from './modules/editProject'
 import { loadImages } from './modules/loadImages';
 import { load } from './modules/load';
 
@@ -18,5 +19,6 @@ setSubmitListener();
 setAddProjectListener();
 setProjectSubmitListener();
 deleteProjectListener();
-editProjectListener();
+setEditProjectListener();
+setEditProjectSubmitListener();
 load();

@@ -123,5 +123,27 @@
       </form>
     </div>
   </div>
+  <div id="editProject-modal" class="modal">
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+      <h1>Edit Project</h1>
+      <h3>Please edit Project details below.</h3>
+      <form id="editProject-form">
+        <div class="input-group">
+          <label for="editProjectTitle">Title</label>
+          <input id="editProjectTitle" name="editProjectTitle" type="text" required/>
+        </div>
+        <div class="input-group">
+          <label for="editProjectDescription">Description</label>
+          <textarea id="editProjectDescription" name="editProjectDescription" rows="8" cols="30" required></textarea>
+        </div>
+        <div class="input-group">
+          <label for="editProjectDueDate">Due Date:</label>
+          <input id="editProjectDueDate" name="editProjectDueDate" type="date" required/>
+        </div>
+        <button type="submit" class="submit">Update Project</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

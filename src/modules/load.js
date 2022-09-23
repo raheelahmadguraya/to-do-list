@@ -1,10 +1,10 @@
 
 const load = () => {
 
-let projectArray = [];
+  let projectArray = [];
 
-const projectArrayJSON = JSON.stringify(projectArray, null, 2);
-localStorage.setItem("projectList", projectArrayJSON);
+  const projectArrayJSON = JSON.stringify(projectArray, null, 2);
+  localStorage.setItem("projectList", projectArrayJSON);
 
 };
 

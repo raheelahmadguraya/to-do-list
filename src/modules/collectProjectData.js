@@ -9,7 +9,7 @@ function handleFormSubmit(event) {
 
   closeModal();
   storeProject(formJSON);
-}
+};
 
 const setProjectSubmitListener = () => {
   const form = document.querySelector('#addProject-modal');

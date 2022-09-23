@@ -339,6 +339,31 @@ textarea {
   gap: 15px;
 }
 
+#editProject-modal {
+  display: none;
+}
+
+#editProject-modal>.modal-content {
+  background-color: white;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.7), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
+  animation-name: modalopen;
+  animation-duration: 1s;
+
+  color: #428dff;
+  display: grid;
+  grid-template-rows: 1fr auto auto auto;
+  padding: 30px 75px 75px 75px;
+  margin: 30% auto;
+  width: 1000px;
+}
+
+#editProject-modal>.modal-content>form {
+  color: #428dff;
+  display: grid;
+  gap: 15px;
+}
+
 h2,
 h5 {
   animation: slide-in 1.5s;
