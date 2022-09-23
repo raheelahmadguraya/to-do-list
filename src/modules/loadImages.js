@@ -9,20 +9,27 @@ import editProject from '../assets/edit-notepad.png'
 import deleteProject from '../assets/project-delete.png'
 
 const loadImages = () => {
+
 const appLogo = document.getElementById('appLogo');
 appLogo.src = notepad;
 
 const addProject = document.getElementById('addProject');
 addProject.src = project;
 
-const markComplete = document.getElementById('check');
-markComplete.src = check;
+const taskCompletionBtn = document.querySelectorAll(".completeTask");
+taskCompletionBtn.forEach((buttonImage) => {
+  buttonImage.src = check;
+});
 
-const edit = document.getElementById('editItem');
-edit.src = pencil;
+const taskEditBtn = document.querySelectorAll(".editTask");
+taskEditBtn.forEach((buttonImage) => {
+  buttonImage.src = pencil;
+});
 
-const deleteTask = document.getElementById('deleteItem');
-deleteTask.src = deleteItem;
+const taskDeleteBtn = document.querySelectorAll(".deleteTask");
+taskDeleteBtn.forEach((buttonImage) => {
+  buttonImage.src = deleteItem;
+});
 
 const addCheckListItem = document.getElementById('addItem');
 addCheckListItem.src = addTask;

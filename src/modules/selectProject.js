@@ -24,6 +24,39 @@ const selectProject = (index) => {
 
   let projectSBLink = document.getElementById((currentProject.key).toString());
   projectSBLink.classList.add("currentProject");
+
+  if (Object.hasOwn(currentProject, 'checkList') == false) {
+    let toDoListSection = document.getElementsByClassName("todo-list")[0];
+    toDoListSection.innerHTML = '';
+  }
+
+  if (Object.hasOwn(currentProject, 'checkList') == true) {
+    let toDoListSection = document.getElementsByClassName("todo-list")[0];
+    toDoListSection.innerHTML = '';
+    for (const toDo of (currentProject.checkList)){
+      console.log(toDo.priority);
+      let toDoTask = document.createElement('div');
+        toDoTask.classList.add("todo");
+        let toDoPriority = document.createElement('div');
+          toDoPriority.classList.add("todo-priority");
+          toDoPriority.classList.add(toDo.priority);
+        let toDoTitle = document.createElement('div');
+          toDoTitle.classList.add("todo-title");
+          toDoTitle.innerHTML = '<h4>' + toDo.title + '</h4>'
+        let toDoDueDate = document.createElement('div');
+          toDoDueDate.classList.add("todo-dueDate");
+          toDoDueDate.innerHTML = '<p>' + 'Due:' + toDo.dueDate + '</p>'
+        const toDoFunctions = document.getElementsByClassName("todo-functions")[0];
+        const toDoFunctionsClone = toDoFunctions.cloneNode(true);
+        
+        toDoTask.appendChild(toDoPriority);
+        toDoTask.appendChild(toDoTitle);
+        toDoTask.appendChild(toDoDueDate);
+        toDoTask.appendChild(toDoFunctionsClone);
+        toDoListSection.appendChild(toDoTask);
+          
+    }
+  }
 };
 
 const setSelectProjectListener = () => {

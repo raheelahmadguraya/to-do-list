@@ -16,6 +16,14 @@ const deleteProjectListener = () => {
       localStorage.setItem('projectList', projectArrayJSON);
 
       currentProject.remove();
+      let projectMainTitle = document.getElementsByClassName('project-title')[0];
+      projectMainTitle.innerHTML = '';
+      let projectDueDate = document.getElementsByClassName('project-dueDate')[0];
+      projectDueDate.innerHTML = '';
+      let projectDescriptionSection = document.getElementsByClassName('project-details')[0];
+      projectDescriptionSection.innerHTML = '';    
+      let toDoListSection = document.getElementsByClassName("todo-list")[0];
+      toDoListSection.innerHTML = '';
 
       if ((JSON.parse(localStorage.getItem('projectList'))).length != 0) {
         let key = 0;

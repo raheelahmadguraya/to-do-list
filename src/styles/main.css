@@ -66,6 +66,7 @@ header {
   grid-template-rows: auto;
   gap: 15px;
   overflow-y: scroll;
+  max-height: 530px;
 }
 
 .selectProject-button {
@@ -125,6 +126,11 @@ header {
   text-align: center;
 }
 
+.todo-list {
+  overflow: scroll;
+  max-height: 250px;
+}
+
 .todo {
   border-bottom: 3px solid #428dff;
   padding: 5px 15px;
@@ -132,10 +138,11 @@ header {
   max-height: 75px;
 
   display: grid;
-  grid-template-columns: auto auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto auto;
   place-items: center start;
   place-content: center center;
   gap: 15px;
+  animation: slide-in 1.5s;
 }
 
 .addTodo {
@@ -155,21 +162,21 @@ header {
   border-radius: 50%;
 }
 
-.high-priority {
+.high {
   background-color: red;
 }
 
-.med-priority {
+.medium {
   background-color: orange;
 }
 
-.low-priority {
+.low {
   background-color: green;
 }
 
-#check,
-#editItem,
-#deleteItem {
+.completeTask,
+.editTask,
+.deleteTask {
   max-width: 25px;
   max-height: 25px;
 }

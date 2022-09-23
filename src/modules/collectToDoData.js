@@ -1,3 +1,5 @@
+import { storeToDo } from './storeToDoinLS'
+
 function handleFormSubmit(event) {
   event.preventDefault();
   
@@ -5,20 +7,11 @@ function handleFormSubmit(event) {
   
   const formJSON = Object.fromEntries(data.entries());
 
-  // for multi-selects, we need special handling
-  formJSON.priority = data.getAll('priority');
-  formJSON.priority = formJSON.priority.toString();
-
-  const result = JSON.stringify(formJSON, null, 2);
-  localStorage.setItem('result', result);
-
   closeModal();
-  let todoItem = JSON.parse(localStorage.getItem('result'));
-  console.log(todoItem)
-  console.log(todoItem.priority)
-}
+  storeToDo(formJSON);
+};
 
-const setSubmitListener = () => {
+const setToDoSubmitListener = () => {
   const form = document.querySelector('#addTodo-modal');
   form.addEventListener('submit', handleFormSubmit);
 };
@@ -29,4 +22,4 @@ const closeModal = () => {
   document.getElementById('addTodo-form').reset();
 };
 
-export { setSubmitListener };
+export { setToDoSubmitListener };

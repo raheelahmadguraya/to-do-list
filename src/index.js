@@ -2,7 +2,7 @@ import './styles/main.css'
 import 'normalize.css';
 import { setTodoListener } from './modules/showTodoModal';
 import { setAddProjectListener } from './modules/showProjectModal';
-import { setSubmitListener } from './modules/storeTodoDetails';
+import { setToDoSubmitListener } from './modules/collectToDoData';
 import { setProjectSubmitListener } from './modules/collectProjectData';
 import { deleteProjectListener } from './modules/deleteProject'
 import { setEditProjectListener } from './modules/editProjectModal'
@@ -13,10 +13,10 @@ import { load } from './modules/load';
 loadImages();
 
 setTodoListener();
-setSubmitListener();
 
 //Manipulate projects
 setAddProjectListener();
+setToDoSubmitListener();
 setProjectSubmitListener();
 deleteProjectListener();
 setEditProjectListener();

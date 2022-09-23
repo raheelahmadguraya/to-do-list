@@ -6,6 +6,7 @@ function handleFormSubmit(event) {
   let projectList = JSON.parse(localStorage.getItem('projectList'))
   let currentProject = document.getElementsByClassName('currentProject')[0];
   let index = projectList.findIndex(x => x.key === (currentProject.id).toString());
+  let projectCheckList = projectList[index].checkList;
   projectList.splice(index, 1);
   const projectArrayJSON = JSON.stringify(projectList, null, 2);
   localStorage.setItem('projectList', projectArrayJSON);
@@ -27,6 +28,7 @@ function handleFormSubmit(event) {
   });
 
   const newTab = replacedItems.reduce((a, b) => Object.assign({}, a, b));
+  newTab.checkList = projectCheckList;
   
 
   closeModal();
