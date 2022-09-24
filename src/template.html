@@ -83,6 +83,39 @@
       </form>
     </div>
   </div>
+  <div id="editTask-modal" class="modal">
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+      <h1>Edit Task</h1>
+      <h3>Please edit Task details below.</h3>
+      <form id="editTask-form">
+        <div class="input-group">
+          <label for="editTaskTitle">Title</label>
+          <input id="editTaskTitle" name="editTaskTitle" type="text" required/>
+        </div>
+        <div class="input-group">
+          <label for="editTaskDescription">Description</label>
+          <textarea id="editTaskDescription" name="editTaskDescription" rows="8" cols="30" required></textarea>
+        </div>
+        <div class="input-group">
+          <label for="editTaskDueDate">Due Date:</label>
+          <input id="editTaskDueDate" name="editTaskDueDate" type="date" required/>
+        </div>
+        <div class="radio-input-group">
+          <h3>Priority</h3>
+          <input id="priority-high" name="priority" type="radio" value="high" required/>
+          <label class="inline" for="priority-high">High</label>
+
+          <input id="priority-medium" name="priority" type="radio" value="medium" required/>
+          <label class="inline" for="priority-medium">Medium</label>
+
+          <input id="priority-low" name="priority" type="radio" value="low" required/>
+          <label class="inline" for="priority-low">Low</label>
+        </div>
+        <button type="submit" class="submit">Update Task</button>
+      </form>
+    </div>
+  </div>
   <div id="addProject-modal" class="modal">
     <div class="modal-content">
       <span class="closeBtn">&times;</span>
