@@ -4,7 +4,7 @@ class Model {
   constructor () {
     const project = {
       pid: 1,
-      title : 'project title',
+      title : 'project 1 title',
       description : 'description',
       dueDate : "2020-08-01",
       current : true,
@@ -23,8 +23,8 @@ class Model {
       }]
     }
     const project2 = {
-      pid: 1,
-      title : 'project title',
+      pid: 2,
+      title : 'project 2 title',
       description : 'description',
       dueDate : "2020-08-01",
       current : false,
@@ -39,6 +39,7 @@ class Model {
     const testProjectsArray = []
     testProjectsArray.push(project, project2);
     localStorage.setItem('projects', JSON.stringify(testProjectsArray))
+
     this.projects = JSON.parse(localStorage.getItem('projects')) || []; // get projects from local storage or create an empty array
   }
 
@@ -49,6 +50,19 @@ class Model {
   _commit(projects){
     this.onProjectListChanged(projects)
     localStorage.setItem('projects', JSON.stringify(projects));
+  }
+
+  selectProject(currentPid, previousPid = null) {
+
+    this.projects = this.projects.map(project =>
+      project.pid === parseInt(previousPid) ? {...project, current : false} : project
+    )
+    this.projects = this.projects.map(project =>
+      project.pid === parseInt(currentPid) ? {...project, current : true} : project
+    )
+
+    console.log(this.projects)
+    this._commit(this.projects)
   }
 
   addProject(projectDetails) {

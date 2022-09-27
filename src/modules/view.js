@@ -41,7 +41,7 @@ class View {
 
         const button = this.createElement('button')
         button.id = project.pid
-        button.classList.add('selectProject-button')
+        button.classList.add('selectProjectButton')
         const buttonText = this.createElement('p')
         buttonText.innerHTML = project.title
         button.append(buttonText)
@@ -152,6 +152,26 @@ class View {
       document.getElementById('addProject-modal').style.display = 'none'
       handler(project)
     })
+  }
+
+  bindSelectProject(handler) {
+    const projectSBList = document.getElementsByClassName('projectList')[0]
+    
+    projectSBList.addEventListener('click', (event) =>{
+      const selectProject = event.target.closest('.selectProjectButton')
+      if(selectProject) {
+        if (document.getElementsByClassName('currentProject')[0]){
+          const currentProject = document.getElementsByClassName('currentProject')[0]
+          currentProject.classList.remove('currentProject')
+          selectProject.classList.add('currentProject')
+          handler(selectProject.id, currentProject.id)
+        }else{
+          selectProject.classList.add('currentProject')
+          handler(selectProject.id)
+        }
+      }
+    })
+
   }
 
 }

@@ -36,7 +36,7 @@ header {
 #editProject-button,
 #deleteProject-button,
 #addTodo-button,
-.selectProject-button {
+.selectProjectButton {
   background: none;
   padding: 0;
   border: 0;
@@ -69,13 +69,13 @@ header {
   max-height: 530px;
 }
 
-.selectProject-button {
+.selectProjectButton {
   width: 100%;
   min-height: 50px;
   animation: slide-in 1.5s;
 }
 
-.selectProject-button:hover {
+.selectProjectButton:hover {
   background-color: #428dff;
   color: white;
   border-top-left-radius: 15px;
