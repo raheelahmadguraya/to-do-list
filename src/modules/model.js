@@ -42,7 +42,12 @@ class Model {
     this.projects = JSON.parse(localStorage.getItem('projects')) || []; // get projects from local storage or create an empty array
   }
 
+  bindProjectListChanged(callback) {
+    this.onProjectListChanged = callback
+  }
+
   _commit(projects){
+    this.onProjectListChanged(projects)
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
@@ -52,10 +57,12 @@ class Model {
       title : projectDetails.projectTitle,
       description : projectDetails.projectDescription,
       dueDate : projectDetails.projectDueDate,
-      todos : []
+      current : false,
+      todos : [{}]
     }
 
     this.projects.push(project);
+    this._commit(this.projects)
   }
 
   editProject(pid, updatedProject) {

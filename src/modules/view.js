@@ -59,18 +59,21 @@ class View {
 
   displaySelectedProject(project) {
     const projectTitleSection = document.getElementsByClassName('project-title')[0]
+    projectTitleSection.innerHTML = ''
 
     const projectTitleDisplay = this.createElement('h1')
     projectTitleDisplay.innerHTML = project.title
     projectTitleSection.append(projectTitleDisplay)
 
     const projectDueDateSection = document.getElementsByClassName('project-dueDate')[0]
+    projectDueDateSection.innerHTML = ''
 
     const projectDueDateDisplay = this.createElement('h4')
     projectDueDateDisplay.innerHTML = 'Due:' + project.dueDate
     projectDueDateSection.append(projectDueDateDisplay)
 
     const projectDescriptionSection = document.getElementsByClassName('project-details')[0]
+    projectDescriptionSection.innerHTML = ''
 
     const projectDescriptionDisplay = this.createElement('p')
     projectDescriptionDisplay.innerHTML = project.description
@@ -136,14 +139,18 @@ class View {
     deleteProjectButton.addEventListener('click', event => {
       document.getElementById('deleteProject-modal').style.display = 'grid'
     })
-
   }
 
   bindAddProject(handler) {
-    const form = new FormData(form);
-    this.form.addEventListener('submit', event => {
+    const form = document.getElementById('addProjectForm');
+    form.addEventListener('submit', event => {
       event.preventDefault()
 
+      let formData = new FormData(form)
+      const project = Object.fromEntries(formData.entries());
+      form.reset()
+      document.getElementById('addProject-modal').style.display = 'none'
+      handler(project)
     })
   }
 

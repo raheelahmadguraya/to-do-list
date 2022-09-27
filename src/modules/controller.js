@@ -3,6 +3,8 @@ class Controller {
     this.model = model;
     this.view = view;
 
+    this.model.bindProjectListChanged(this.onProjectListChanged)
+    this.view.bindAddProject(this.handleAddProject)
     /*
     this.model.bindProjectListChanged(this.onProjectListChanged)
     this.view.bindAddProject(this.handleAddProject)
