@@ -22,10 +22,11 @@ class Model {
         priority: "low"
       }]
     }
+
     const project2 = {
       pid: 2,
       title : 'project 2 title',
-      description : 'description',
+      description : 'description 2',
       dueDate : "2020-08-01",
       current : false,
       todos: [{
@@ -36,6 +37,7 @@ class Model {
         priority: "high"
       }]
     }
+
     const testProjectsArray = []
     testProjectsArray.push(project, project2);
     localStorage.setItem('projects', JSON.stringify(testProjectsArray))
@@ -61,7 +63,6 @@ class Model {
       project.pid === parseInt(currentPid) ? {...project, current : true} : project
     )
 
-    console.log(this.projects)
     this._commit(this.projects)
   }
 
@@ -93,9 +94,12 @@ class Model {
   }
 
   deleteProject(pid) {
-    this.projects = this.projects.filter(project => project.pid !== pid)
+    this.projects = this.projects.filter(project => project.pid !== parseInt(pid))
 
     this._commit(this.projects)
+    if(this.projects.length > 0){
+      this.selectProject(this.projects[0].pid)
+    }
   }
 
   addTodo(todo) {

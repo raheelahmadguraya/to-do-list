@@ -72,7 +72,6 @@ header {
 .selectProjectButton {
   width: 100%;
   min-height: 50px;
-  animation: slide-in 1.5s;
 }
 
 .selectProjectButton:hover {
@@ -97,6 +96,7 @@ header {
   display: grid;
   grid-template-columns: 1.5fr 0.75fr;
   grid-template-rows: 0.25fr 1.5fr;
+  animation: fadeInOpacity 1.5s;
 }
 
 .project-title,
@@ -104,7 +104,7 @@ header {
   display: grid;
   place-content: center start;
   padding-left: 15px;
-  animation: slide-in 1.5s;
+  animation: fadeInOpacity 1.5s;
 }
 
 /*Project Checklist*/
@@ -118,7 +118,7 @@ header {
   min-height: 200px;
   border: 5px solid #428dff;
   border-radius: 15px;
-  animation: slide-in 1.5s;
+  animation: fadeInOpacity 1.5s;
 }
 
 .checklist-title {
@@ -131,6 +131,7 @@ header {
 .todo-list {
   overflow: scroll;
   max-height: 250px;
+  animation: fadeInOpacity 1.5s;
 }
 
 .todo {
@@ -144,7 +145,7 @@ header {
   place-items: center start;
   place-content: center center;
   gap: 15px;
-  animation: slide-in 1.5s;
+  animation: fadeInOpacity 1.5s;
 }
 
 .addTodo {
@@ -200,7 +201,7 @@ header {
 
   display: grid;
   grid-template-rows: 75px auto;
-  animation: slide-in 1.5s;
+  animation: fadeInOpacity 1.5s;
 }
 
 .projectDescription-title {
@@ -218,6 +219,7 @@ header {
   color: black;
   overflow: auto;
   white-space: pre-line;
+  animation: fadeInOpacity 1.5s;
 }
 
 /*footer*/
@@ -400,7 +402,7 @@ textarea {
 
 h2,
 h5 {
-  animation: slide-in 1.5s;
+  animation: fadeInOpacity 1.5s;
 }
 
 @keyframes fadeInOpacity {

@@ -6,10 +6,8 @@ class Controller {
     this.model.bindProjectListChanged(this.onProjectListChanged)
     this.view.bindAddProject(this.handleAddProject)
     this.view.bindSelectProject(this.handleSelectProject)
-    /*
-    this.view.bindEditProject(this.handleEditProject)
     this.view.bindDeleteProject(this.handleDeleteProject)
-    */
+    //this.view.bindEditProject(this.handleEditProject)
 
     //display initial projects
     this.onProjectListChanged(this.model.projects);
@@ -27,7 +25,7 @@ class Controller {
     this.model.addProject(project)
   }
 
-  handleEditProject = project => {
+  handleEditProject = (pid, project) => {
     this.model.editProject(pid, project)
   }
 
