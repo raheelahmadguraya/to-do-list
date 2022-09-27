@@ -7,7 +7,7 @@ class Controller {
     this.view.bindAddProject(this.handleAddProject)
     this.view.bindSelectProject(this.handleSelectProject)
     this.view.bindDeleteProject(this.handleDeleteProject)
-    //this.view.bindEditProject(this.handleEditProject)
+    this.view.bindEditProject(this.handleEditProject)
 
     //display initial projects
     this.onProjectListChanged(this.model.projects);

@@ -81,14 +81,19 @@ class Model {
   }
 
   editProject(pid, updatedProject) {
+    console.log(pid)
+    console.log(updatedProject)
+    const updtdProject = {
+      title : updatedProject.editProjectTitle,
+      description : updatedProject.editProjectDescription,
+      dueDate : updatedProject.editProjectDueDate
+    }
+
+    console.log(updtdProject)
     this.projects = this.projects.map(project =>
-      project.pid === pid ? { 
-        title : updatedProject.projectTitle,
-        description : updatedProject.projectDescription,
-        dueDate : updatedProject.projectDueDate,
-        todos : updatedProject.todos
-       } : project
+      project.pid === parseInt(pid) ? {...project, ...updtdProject} : project
     )
+    console.log(this.projects)
 
     this._commit(this.projects)
   }

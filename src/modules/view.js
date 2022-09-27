@@ -134,13 +134,17 @@ class View {
     })
     editProjectButton.addEventListener('click', event => {
       document.getElementById('editProject-modal').style.display = 'grid'
+
       const projectTitleSection = document.getElementsByClassName('project-title')[0]
       const projectDescriptionSection = document.getElementsByClassName('project-details')[0]
       const projectDueDateSection = document.getElementsByClassName('project-dueDate')[0]
       const editProjectTitle = document.getElementById('editProjectTitle')
       const editProjectDescription = document.getElementById('editProjectDescription')
       const editProjectDueDate = document.getElementById('editProjectDueDate')
+
       editProjectTitle.setAttribute("value", projectTitleSection.firstChild.innerHTML)
+      editProjectDescription.innerHTML = (projectDescriptionSection.firstChild.innerHTML)
+      editProjectDueDate.setAttribute("value", projectDueDateSection.firstChild.innerHTML.replace('Due:',''))
     })
   }
 
@@ -199,17 +203,16 @@ class View {
   }
 
   bindEditProject(handler) {
-    const form = document.getElementById('editProject-Form');
+    const form = document.getElementById('editProjectForm');
     form.addEventListener('submit', event => {
       event.preventDefault()
 
       let formData = new FormData(form)
       const project = Object.fromEntries(formData.entries());
-      form.reset()
-      document.getElementById('editProject-modal').style.display = 'none'
-
       const currentProject = document.getElementsByClassName('currentProject')[0]
       const pid = currentProject.id
+      form.reset()
+      document.getElementById('editProject-modal').style.display = 'none'
 
       handler(pid, project)
     })
