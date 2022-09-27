@@ -1,18 +1,10 @@
 import './styles/main.css'
 import 'normalize.css';
 
-import { loadImages } from './modules/loadImages';
-import { load } from './modules/load';
+import { Controller } from './modules/controller';
+import { Model } from './modules/model'
+import { View } from './modules/view'
+import { load } from './modules/load'
 
-loadImages();
-
-setTodoListener();
-
-//Manipulate projects
-setAddProjectListener();
-setToDoSubmitListener();
-setProjectSubmitListener();
-deleteProjectListener();
-setEditProjectListener();
-setEditProjectSubmitListener();
 load();
+const app = new Controller(new Model(), new View())

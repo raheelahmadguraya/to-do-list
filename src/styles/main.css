@@ -71,6 +71,7 @@ header {
 
 .selectProject-button {
   width: 100%;
+  min-height: 50px;
   animation: slide-in 1.5s;
 }
 
@@ -117,6 +118,7 @@ header {
   min-height: 200px;
   border: 5px solid #428dff;
   border-radius: 15px;
+  animation: slide-in 1.5s;
 }
 
 .checklist-title {

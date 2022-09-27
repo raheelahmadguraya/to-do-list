@@ -1,11 +1,9 @@
+import { loadImages } from './loadImages';
 
 const load = () => {
 
-  let projectArray = [];
-
-  const projectArrayJSON = JSON.stringify(projectArray, null, 2);
-  localStorage.setItem("projectList", projectArrayJSON);
-
+  loadImages();
+  
 };
 
 export { load };
