@@ -126,7 +126,28 @@ class Model {
   }
 
   editTodo(pid, tid, todo) {
-    console.log("edit")
+    const project = this.projects.find(x => x.pid === parseInt(pid))
+    let todos = project.todos
+
+    const updtdTodo = {
+      title : todo.editTaskTitle,
+      description : todo.editTaskDescription,
+      dueDate : todo.editTaskDueDate,
+      priority : todo.priority
+    }
+
+
+    todos = todos.map(todo =>
+      todo.tid === parseInt(tid) ? {...todo, ...updtdTodo} : todo
+    )
+
+    project.todos = todos
+
+    this.projects = this.projects.map(project =>
+      project.pid === parseInt(pid) ? {...project} : project
+    )
+    this._commit(this.projects)
+  
   }
 
   deleteTodo(pid, tid) {

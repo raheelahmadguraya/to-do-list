@@ -285,19 +285,20 @@ class View {
     const toDoListSection = document.getElementsByClassName("todoList")[0];
     toDoListSection.addEventListener('click', event => {
       if(event.target.className === ('editTask')) {
+        const currentProject = document.getElementsByClassName('currentProject')[0]
+        const pid = currentProject.id
+        const tid = event.target.closest('.todo').id
+
         document.getElementById('editTodo-modal').style.display = 'grid'
+        
         const form = document.getElementById('editTaskForm')
         form.addEventListener('submit', event => {
           event.preventDefault()
           let formData = new FormData(form)
           const todo = Object.fromEntries(formData.entries());
           form.reset()
-          document.getElementById('addTodo-modal').style.display = 'none'
+          document.getElementById('editTodo-modal').style.display = 'none'
 
-          const currentProject = document.getElementsByClassName('currentProject')[0]
-          const pid = currentProject.id
-
-          const tid = event.target.closest('.todo').id
           handler(pid,tid,todo)
         })
       }
