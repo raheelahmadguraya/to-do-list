@@ -55,6 +55,11 @@ class View {
         }
 
         projectListSection.append(button);
+        console.log(document.getElementsByClassName('currentProject').length)
+        if(document.getElementsByClassName('currentProject').length == 0) {
+          button.classList.add('currentProject')
+          this.displaySelectedProject(project)
+        }
 
       })
     }
@@ -190,7 +195,10 @@ class View {
     const addTodoButton = document.getElementById('addTodo-button')
 
     addTodoButton.addEventListener('click', event =>{
-      document.getElementById('addTodo-modal').style.display = 'grid'
+      const projectList = document.getElementsByClassName('projectList')[0]
+      if (projectList.childNodes.length !== 0) {
+        document.getElementById('addTodo-modal').style.display = 'grid'
+      }
     })
   }
 
