@@ -49,18 +49,16 @@ class View {
         buttonText.innerHTML = project.title
         button.append(buttonText)
 
+        if (projects.length === 1) {
+          project.current = true;
+        }
+
         if(project.current) {
           button.classList.add('currentProject')
           this.displaySelectedProject(project)
         }
 
         projectListSection.append(button);
-        console.log(document.getElementsByClassName('currentProject').length)
-        if(document.getElementsByClassName('currentProject').length == 0) {
-          button.classList.add('currentProject')
-          this.displaySelectedProject(project)
-        }
-
       })
     }
   }

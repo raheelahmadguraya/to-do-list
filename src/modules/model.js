@@ -2,47 +2,6 @@
 
 class Model {
   constructor () {
-    const project = {
-      pid: 1,
-      title : 'project 1 title',
-      description : 'description',
-      dueDate : "2020-08-01",
-      current : true,
-      todos: [{
-        tid: 1,
-        title: "todo test",
-        description: "todo description",
-        dueDate: "2020-08-01",
-        priority: "high",
-        complete: true,
-      },{
-        tid: 2,
-        title: "todo test",
-        description: "todo description",
-        dueDate: "2020-08-02",
-        priority: "low",
-        complete: false,
-      }]
-    }
-
-    const project2 = {
-      pid: 2,
-      title : 'project 2 title',
-      description : 'description 2',
-      dueDate : "2020-08-01",
-      current : false,
-      todos: [{
-        tid: 1,
-        title: "todo test",
-        description: "todo description",
-        dueDate: "2020-08-01",
-        priority: "high"
-      }]
-    }
-
-    const testProjectsArray = []
-    testProjectsArray.push(project, project2);
-    localStorage.setItem('projects', JSON.stringify(testProjectsArray))
 
     this.projects = JSON.parse(localStorage.getItem('projects')) || []; // get projects from local storage or create an empty array
   }
