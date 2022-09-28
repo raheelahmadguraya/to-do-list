@@ -75,7 +75,7 @@ class Model {
       description : projectDetails.projectDescription,
       dueDate : projectDetails.projectDueDate,
       current : false,
-      todos : [{}]
+      todos : []
     }
 
     this.projects.push(project);
