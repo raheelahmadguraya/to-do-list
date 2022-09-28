@@ -128,7 +128,7 @@ header {
   text-align: center;
 }
 
-.todo-list {
+.todoList {
   overflow: scroll;
   max-height: 250px;
   animation: fadeInOpacity 1.5s;
@@ -375,11 +375,11 @@ textarea {
   gap: 15px;
 }
 
-#editTask-modal {
+#editTodo-modal {
   display: none;
 }
 
-#editTask-modal>.modal-content {
+#editTodo-modal>.modal-content {
   background-color: white;
   width: 70%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.7), 0 7px 20px 0 rgba(0, 0, 0, 0.7);
@@ -394,7 +394,7 @@ textarea {
   width: 1000px;
 }
 
-#editTask-modal>.modal-content>form {
+#editTodo-modal>.modal-content>form {
   color: #428dff;
   display: grid;
   gap: 15px;

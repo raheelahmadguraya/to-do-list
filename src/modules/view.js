@@ -1,3 +1,6 @@
+import uncheck from '../assets/uncompletedTask.png'
+import check from '../assets/completedTask.png'
+
 class View {
   constructor() {
     this._initLocalListeners()
@@ -84,11 +87,12 @@ class View {
 
   displayTodos(project) {
 
-    let toDoListSection = document.getElementsByClassName("todo-list")[0];
+    let toDoListSection = document.getElementsByClassName("todoList")[0];
     toDoListSection.innerHTML = '';
 
     for (const toDo of (project.todos)){
       let toDoTask = document.createElement('div');
+      toDoTask.id = toDo.tid
       toDoTask.classList.add("todo");
       let toDoPriority = document.createElement('div');
       toDoPriority.classList.add("todo-priority");
@@ -99,8 +103,34 @@ class View {
       let toDoDueDate = document.createElement('div');
       toDoDueDate.classList.add("todo-dueDate");
       toDoDueDate.innerHTML = '<p>' + 'Due:' + toDo.dueDate + '</p>'
-      const toDoFunctions = document.getElementsByClassName("todo-functions")[0];
-      const toDoFunctionsClone = toDoFunctions.cloneNode(true);
+      const toDoFunctions = document.getElementsByClassName('todo-functions')
+      const buttonsTemplate = toDoFunctions[toDoFunctions.length-1]
+      const toDoFunctionsClone = buttonsTemplate.cloneNode(true);
+
+
+      let toggleButton = document.createElement('button')
+      toggleButton.classList.add('todo-button')
+      toggleButton.classList.add('markTaskComplete-button')
+      toggleButton.setAttribute("title","Mark task complete")
+      if(toDo.complete == true) {
+        toDoTitle.innerHTML = '<h4><s>' + toDo.title + '</s></h4>'
+        let completeIcon = document.createElement('img')
+        completeIcon.classList.add('completeTask')
+        completeIcon.src = check
+        toggleButton.innerHTML =''
+        toggleButton.appendChild(completeIcon)
+      } 
+      else if (toDo.complete == false) {
+        toDoTitle.innerHTML = '<h4>' + toDo.title + '</h4>'
+        let notCompleteIcon = document.createElement('img')
+        notCompleteIcon.classList.add('completeTask')
+        notCompleteIcon.src = uncheck
+        toggleButton.innerHTML =''
+        toggleButton.appendChild(notCompleteIcon)
+      }
+
+      toDoFunctionsClone.prepend(toggleButton)
+
 
       toDoTask.appendChild(toDoPriority);
       toDoTask.appendChild(toDoTitle);
@@ -119,13 +149,23 @@ class View {
         closeBtn.addEventListener('click', () => {
         document.getElementById('addProject-modal').style.display = 'none'
         document.getElementById('editProject-modal').style.display = 'none'
+        document.getElementById('addTodo-modal').style.display = 'none'
+        document.getElementById('editTodo-modal').style.display = 'none'
       })
     }
 
     window.addEventListener('click', (event) => {
-      if (event.target == document.getElementById('addProject-modal') ||event.target == document.getElementById('editProject-modal')){
+      if (event.target == document.getElementById('addProject-modal') 
+      ||event.target == document.getElementById('editProject-modal') 
+      || event.target == document.getElementById('addTodo-modal') 
+      || event.target == document.getElementById('editTodo-modal'))
+      {
+
         document.getElementById('addProject-modal').style.display = 'none'
         document.getElementById('editProject-modal').style.display = 'none'
+        document.getElementById('addTodo-modal').style.display = 'none'
+        document.getElementById('editTodo-modal').style.display = 'none'
+
       }
     })
 
@@ -145,6 +185,12 @@ class View {
       editProjectTitle.setAttribute("value", projectTitleSection.firstChild.innerHTML)
       editProjectDescription.innerHTML = (projectDescriptionSection.firstChild.innerHTML)
       editProjectDueDate.setAttribute("value", projectDueDateSection.firstChild.innerHTML.replace('Due:',''))
+    })
+
+    const addTodoButton = document.getElementById('addTodo-button')
+
+    addTodoButton.addEventListener('click', event =>{
+      document.getElementById('addTodo-modal').style.display = 'grid'
     })
   }
 
@@ -184,7 +230,7 @@ class View {
     const deleteBtn = document.getElementById('deleteProject-button')
 
     deleteBtn.addEventListener('click', event => {
-      const toDoListSection = document.getElementsByClassName("todo-list")[0];
+      const toDoListSection = document.getElementsByClassName("todoList")[0];
       toDoListSection.innerHTML = '';
   
       const projectTitleSection = document.getElementsByClassName('project-title')[0]
@@ -215,6 +261,76 @@ class View {
       document.getElementById('editProject-modal').style.display = 'none'
 
       handler(pid, project)
+    })
+  }
+
+  bindAddTodo(handler) {
+    const form = document.getElementById('addTodoForm');
+    form.addEventListener('submit', event => {
+      event.preventDefault()
+
+      let formData = new FormData(form)
+      const todo = Object.fromEntries(formData.entries());
+      const currentProject = document.getElementsByClassName('currentProject')[0]
+      const pid = currentProject.id
+      form.reset()
+      document.getElementById('addTodo-modal').style.display = 'none'
+
+      handler(pid, todo)
+    })
+  }
+
+  bindEditTodo(handler) {
+
+    const toDoListSection = document.getElementsByClassName("todoList")[0];
+    toDoListSection.addEventListener('click', event => {
+      if(event.target.className === ('editTask')) {
+        document.getElementById('editTodo-modal').style.display = 'grid'
+        const form = document.getElementById('editTaskForm')
+        form.addEventListener('submit', event => {
+          event.preventDefault()
+          let formData = new FormData(form)
+          const todo = Object.fromEntries(formData.entries());
+          form.reset()
+          document.getElementById('addTodo-modal').style.display = 'none'
+
+          const currentProject = document.getElementsByClassName('currentProject')[0]
+          const pid = currentProject.id
+
+          const tid = event.target.closest('.todo').id
+          handler(pid,tid,todo)
+        })
+      }
+    })
+  }
+
+  bindDeleteTodo(handler) {
+
+    const toDoListSection = document.getElementsByClassName("todoList")[0];
+    toDoListSection.addEventListener('click', event => {
+      if(event.target.className === ('deleteTask')) {
+        const currentProject = document.getElementsByClassName('currentProject')[0]
+        const pid = currentProject.id
+
+        const tid = event.target.closest('.todo').id
+
+        handler(pid, tid)
+      }
+    })
+  }
+
+  bindToggleTodo(handler){
+
+    const toDoListSection = document.getElementsByClassName("todoList")[0];
+    toDoListSection.addEventListener('click', event => {
+      if(event.target.className === ('completeTask')) {
+        const currentProject = document.getElementsByClassName('currentProject')[0]
+        const pid = currentProject.id
+
+        const tid = event.target.closest('.todo').id
+
+        handler(pid, tid)
+      }
     })
   }
 

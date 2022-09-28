@@ -13,13 +13,15 @@ class Model {
         title: "todo test",
         description: "todo description",
         dueDate: "2020-08-01",
-        priority: "high"
+        priority: "high",
+        complete: true,
       },{
         tid: 2,
         title: "todo test",
         description: "todo description",
         dueDate: "2020-08-02",
-        priority: "low"
+        priority: "low",
+        complete: false,
       }]
     }
 
@@ -81,19 +83,16 @@ class Model {
   }
 
   editProject(pid, updatedProject) {
-    console.log(pid)
-    console.log(updatedProject)
+ 
     const updtdProject = {
       title : updatedProject.editProjectTitle,
       description : updatedProject.editProjectDescription,
       dueDate : updatedProject.editProjectDueDate
     }
 
-    console.log(updtdProject)
     this.projects = this.projects.map(project =>
       project.pid === parseInt(pid) ? {...project, ...updtdProject} : project
     )
-    console.log(this.projects)
 
     this._commit(this.projects)
   }
@@ -107,20 +106,69 @@ class Model {
     }
   }
 
-  addTodo(todo) {
-
+  addTodo(pid, todoDetails) {
+    const project = this.projects.find(x => x.pid === parseInt(pid))
+    const todos = project.todos
+    const todo = {
+      tid: todos.length > 0 ? todos[todos.length - 1].tid + 1 : 1,
+      title: todoDetails.title,
+      description: todoDetails.description,
+      dueDate: todoDetails.dueDate,
+      priority: todoDetails.priority,
+      complete: false
+    }
+    project.todos.push(todo)
+    console.log(project)
+    this.projects = this.projects.map(project =>
+      project.pid === parseInt(pid) ? {...project} : project
+    )
+    this._commit(this.projects)
   }
 
-  editTodo(tid, todo) {
-
+  editTodo(pid, tid, todo) {
+    console.log("edit")
   }
 
-  deleteTodo(tid) {
+  deleteTodo(pid, tid) {
+    console.log("project id:" + pid)
+    console.log("task id:" + tid)
 
+    const project = this.projects.find(x => x.pid === parseInt(pid))
+    let todos = project.todos
+
+    todos = todos.filter(task => task.tid !== parseInt(tid))
+
+    project.todos = todos
+
+    this.projects = this.projects.map(project =>
+      project.pid === parseInt(pid) ? {...project} : project
+    )
+    this._commit(this.projects)
   }
 
-  toggleTodo(tid) {
+  toggleTodo(pid, tid) {
+    console.log("project id:" + pid)
+    console.log("task id:" + tid)
 
+    const project = this.projects.find(x => x.pid === parseInt(pid))
+    let todos = project.todos
+
+    const todo = todos.find(x => x.tid === parseInt(tid))
+    if (todo.complete == false) {
+      todo.complete = true
+    } else {
+      todo.complete = false
+    }
+    todos = todos.map(todo =>
+      todo.tid === parseInt(tid) ? {...todo} : todo
+    )
+
+    project.todos = todos
+
+    this.projects = this.projects.map(project =>
+      project.pid === parseInt(pid) ? {...project} : project
+    )
+    this._commit(this.projects)
   }
 }
 

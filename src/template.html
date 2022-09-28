@@ -34,7 +34,7 @@
         <div class="checklist-title">
           <h2>Checklist</h2>
         </div>
-        <div class="todo-list">
+        <div class="todoList">
         </div>
         <div class="todo addTodo">
           <button id="addTodo-button" title="Add a new task"><img id="addItem"></button>
@@ -58,7 +58,7 @@
       <span class="closeBtn">&times;</span>
       <h1>Add a To-do.</h1>
       <h3>Please fill out task details below.</h3>
-      <form id="addTodo-form">
+      <form id="addTodoForm">
         <div class="input-group">
           <label for="title">Title</label>
           <input id="title" name="title" type="text" required/>
@@ -86,12 +86,12 @@
       </form>
     </div>
   </div>
-  <div id="editTask-modal" class="modal">
+  <div id="editTodo-modal" class="modal">
     <div class="modal-content">
       <span class="closeBtn">&times;</span>
       <h1>Edit Task</h1>
       <h3>Please edit Task details below.</h3>
-      <form id="editTask-form">
+      <form id="editTaskForm">
         <div class="input-group">
           <label for="editTaskTitle">Title</label>
           <input id="editTaskTitle" name="editTaskTitle" type="text" required/>
@@ -165,7 +165,7 @@
   </div>
   <div class="checkListButtons" style="display: none;">
     <div class="todo-functions">
-      <button class="todo-button markTaskComplete-button" title="Mark task complete"><img class="completeTask"></button>
+      <!--<button class="todo-button markTaskComplete-button" title="Mark task complete"><img class="completeTask"></button>-->
       <button class="todo-button editTask-button" title="Edit task"><img class="editTask"></button>
       <button class="todo-button deleteTask-button" title="Delete task"><img class="deleteTask"></button>
     </div>
